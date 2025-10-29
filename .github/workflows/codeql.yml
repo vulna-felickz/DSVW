@@ -81,10 +81,11 @@ jobs:
             # Any "NOTE" severity quality queries
             - exclude:
                 problem.severity: recommendation
-            # Any LOW severity security security queries
+            # Any LOW severity security security queries (0-3.9 CVSS)
             - exclude:
                 tags contain: security
-                security-severity < 4.0          
+                security-severity: 
+                  - /^[0-3]\./
           
 
     # If the analyze step fails for one of the languages you are analyzing with
