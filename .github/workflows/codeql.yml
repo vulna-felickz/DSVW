@@ -77,6 +77,14 @@ jobs:
         queries: security-extended,security-and-quality
         config: |
           threat-models: local
+          query-filters:
+            # Any "NOTE" severity quality queries
+            - exclude:
+                problem.severity: recommendation
+            # Any LOW severity security security queries
+            - exclude:
+                tags contain: security
+                security-severity < 4.0          
           
 
     # If the analyze step fails for one of the languages you are analyzing with
