@@ -78,14 +78,14 @@ jobs:
         config: |
           threat-models: local
           query-filters:
-            # Any "NOTE" severity quality queries
+            # Any NOTE severity quality queries
             - exclude:
                 problem.severity: recommendation
-            # Any LOW severity security security queries (0-3.9 CVSS)
+            # Any LOW/MEDIUM severity security security queries (0-6.9 CVSS) - https://gh.io/codeql-severity
             - exclude:
                 tags contain: security
                 security-severity: 
-                  - /^[0-3]\./
+                  - /^[0-6]\./
           
 
     # If the analyze step fails for one of the languages you are analyzing with
